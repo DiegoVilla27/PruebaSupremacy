@@ -19,6 +19,8 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-loading-skeleton": "^3.2.0",
+    "react-redux": "^8.0.5",
+    "redux-thunk": "^2.4.2",
     "sweetalert2": "^11.7.3",
     "yup": "^1.0.2"
   },
