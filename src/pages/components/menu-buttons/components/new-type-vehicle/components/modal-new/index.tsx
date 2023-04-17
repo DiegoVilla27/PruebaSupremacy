@@ -1,3 +1,5 @@
+import useModalNewType from './hooks';
+
 interface IProps {
 	data: any;
 	setData: any;
@@ -5,6 +7,8 @@ interface IProps {
 }
 
 function ModalNewType({ data, setData, handleClickAdd }: IProps) {
+	const { idVehicle, typeVehicle } = useModalNewType({ data });
+
 	return (
 		<div
 			className='modal fade'
@@ -31,12 +35,14 @@ function ModalNewType({ data, setData, handleClickAdd }: IProps) {
 					</div>
 					<div className='modal-body'>
 						<input
+							ref={idVehicle}
 							className='form-control form-control-sm mb-2'
 							type='text'
 							placeholder='ID Vehicle: XXX-00000'
 							onChange={(e: any) => setData({ ...data, id: e.target.value })}
 						/>
 						<select
+							ref={typeVehicle}
 							className='form-select form-select-sm'
 							onChange={(e: any) => setData({ ...data, type: e.target.value })}
 						>
@@ -47,6 +53,7 @@ function ModalNewType({ data, setData, handleClickAdd }: IProps) {
 					</div>
 					<div className='modal-footer'>
 						<button
+							id='close-modal-new-type'
 							type='button'
 							className='btn btn-secondary'
 							data-bs-dismiss='modal'

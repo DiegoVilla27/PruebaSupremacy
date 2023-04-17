@@ -16,16 +16,21 @@ function useRegisterVehicles() {
 
   const handleClickAdd = () => {
     if (data.type === '' || data.type === null) return;
-    console.log(data)
-    if (data.type === 'oficial')
+
+    if (data.type === 'Oficial')
       dispatch(AddOficial(data.id));
     else
       dispatch(AddResident(data.id));
-    setData({ id: '', type: '' });
+    cleanModalData();
   }
 
   const handleClickRemove = () => {
     dispatch(RemoveOficial('XXX-00000'));
+  }
+
+  const cleanModalData = () => {
+    setData({ id: '', type: '' });
+    document.getElementById('close-modal-new-type')?.click();
   }
 
   return {
